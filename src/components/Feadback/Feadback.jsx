@@ -7,7 +7,6 @@ export const FeedbackMurkup = ({
 }) => {
   return (
     <div>
-      <p className="Feedback-title">Please leave feedback</p>
       <div className="Fedback-buttons">
         <button type="button" onClick={onButtonGood}>
           Good
