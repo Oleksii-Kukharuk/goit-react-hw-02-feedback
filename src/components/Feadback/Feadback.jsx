@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button, Wraper } from './Feadback.styled';
 
 export const FeedbackMurkup = ({
   onButtonBad,
@@ -7,17 +8,17 @@ export const FeedbackMurkup = ({
 }) => {
   return (
     <div>
-      <div className="Fedback-buttons">
-        <button type="button" onClick={onButtonGood}>
+      <Wraper>
+        <Button type="button" onClick={onButtonGood}>
           Good
-        </button>
-        <button type="button" onClick={onButtonNeutural}>
+        </Button>
+        <Button type="button" onClick={onButtonNeutural}>
           Neutural
-        </button>
-        <button type="button" onClick={onButtonBad}>
+        </Button>
+        <Button type="button" onClick={onButtonBad}>
           Bad
-        </button>
-      </div>
+        </Button>
+      </Wraper>
     </div>
   );
 };

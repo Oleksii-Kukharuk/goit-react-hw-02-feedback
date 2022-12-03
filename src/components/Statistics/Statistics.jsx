@@ -1,13 +1,14 @@
 import React from 'react';
+import { StatisticList, OrdinaryP } from './Statistics.styled';
 
 export const Statistics = ({ Good, Neutural, Bad }) => {
   return (
     <div>
-      <ul>
+      <StatisticList>
         <li>Good: {Good}</li>
         <li>Neutural: {Neutural}</li>
         <li>Bad: {Bad}</li>
-      </ul>
+      </StatisticList>
     </div>
   );
 };
@@ -15,8 +16,12 @@ export const Statistics = ({ Good, Neutural, Bad }) => {
 export const Total = ({ Total, persentage }) => {
   return (
     <>
-      <p>Total: {Total}</p>
-      <p>Positive feedback: {persentage} %</p>
+      <OrdinaryP>Total: {Total}</OrdinaryP>
+      <OrdinaryP>Positive feedback: {persentage} %</OrdinaryP>
     </>
   );
+};
+
+export const DefaultText = ({ text }) => {
+  return <OrdinaryP>there is no feed</OrdinaryP>;
 };

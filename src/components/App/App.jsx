@@ -1,6 +1,10 @@
 import React from 'react';
 import { FeedbackMurkup } from 'components/Feadback/Feadback';
-import { Statistics, Total } from 'components/Statistics/Statistics';
+import {
+  DefaultText,
+  Statistics,
+  Total,
+} from 'components/Statistics/Statistics';
 import { Section } from 'components/Section/Section';
 
 class Feedback extends React.Component {
@@ -27,7 +31,8 @@ class Feedback extends React.Component {
   };
 
   countTotalFeedback = () => {
-    const total = this.state.Bad + this.state.Good + this.state.Neutral;
+    const { Bad, Good, Neutral } = this.state;
+    const total = Bad + Good + Neutral;
     // console.log(total);
     return total;
   };
@@ -60,7 +65,7 @@ class Feedback extends React.Component {
             />
           </Section>
         ) : (
-          'there is no feed'
+          <DefaultText />
         )}
       </>
     );
