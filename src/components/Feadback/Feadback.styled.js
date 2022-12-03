@@ -21,7 +21,7 @@ export const Button = styled.button`
       return 'red';
     }
     if (props.children === 'Neutural') {
-      return 'tomato';
+      return 'orange';
     }
   }};
   border: none;
@@ -40,7 +40,7 @@ export const Button = styled.button`
         return 'darkred';
       }
       if (props.children === 'Neutural') {
-        return 'orange';
+        return 'tomato';
       }
     }};
   }
@@ -53,7 +53,7 @@ export const Button = styled.button`
         return 'darkred';
       }
       if (props.children === 'Neutural') {
-        return 'orange';
+        return 'tomato';
       }
     }};
     box-shadow: 0 5px #666;
