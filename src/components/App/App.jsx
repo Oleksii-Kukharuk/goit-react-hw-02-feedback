@@ -9,36 +9,26 @@ import { Section } from 'components/Section/Section';
 
 class Feedback extends React.Component {
   state = {
-    Good: 0,
-    Neutral: 0,
-    Bad: 0,
+    good: 0,
+    neutral: 0,
+    bad: 0,
   };
 
-  buttonGood = () => {
-    this.setState(prevState => {
-      return { Good: prevState.Good + 1 };
-    });
-  };
-  buttonNeutural = () => {
+  clickHandler = e => {
     this.setState(prevState => ({
-      Neutral: prevState.Neutral + 1,
-    }));
-  };
-  buttonBad = () => {
-    this.setState(prevState => ({
-      Bad: prevState.Bad + 1,
+      [e.target.name]: prevState[e.target.name] + 1,
     }));
   };
 
   countTotalFeedback = () => {
-    const { Bad, Good, Neutral } = this.state;
-    const total = Bad + Good + Neutral;
+    const { bad, good, neutral } = this.state;
+    const total = bad + good + neutral;
     // console.log(total);
     return total;
   };
 
   countPositiveFeedbackPercentage = () => {
-    const persent = this.state.Good / this.countTotalFeedback();
+    const persent = this.state.good / this.countTotalFeedback();
     return persent ? Math.round(persent * 100) : 0;
   };
 
@@ -46,18 +36,14 @@ class Feedback extends React.Component {
     return (
       <>
         <Section title={'Please leave feed and back'}>
-          <FeedbackMurkup
-            onButtonBad={this.buttonBad}
-            onButtonGood={this.buttonGood}
-            onButtonNeutural={this.buttonNeutural}
-          />
+          <FeedbackMurkup onClick={this.clickHandler} />
         </Section>
         {this.countTotalFeedback() > 0 ? (
           <Section>
             <Statistics
-              Good={this.state.Good}
-              Bad={this.state.Bad}
-              Neutural={this.state.Neutral}
+              Good={this.state.good}
+              Bad={this.state.bad}
+              Neutural={this.state.neutral}
             />
             <Total
               Total={this.countTotalFeedback()}
